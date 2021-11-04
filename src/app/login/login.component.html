@@ -1,0 +1,46 @@
+<div class="main-content">
+    <div class="navbar">
+      <mat-toolbar>
+        <img class="logo" src="assets/images/logo.png" height="40px" />{{'NOME_APLICACAO' | frases}}</mat-toolbar>
+    </div>
+  
+  
+    <form [formGroup]="siginForm" (ngSubmit)="sendForm()">
+      <div class="main">
+        <mat-card>
+          <mat-card-title>
+            <img src="assets/images/logo.png" width="100px">
+            <p>{{'LOGIN_SISTEMA' | frases}}</p>
+          </mat-card-title>
+          <mat-card-content>
+            <mat-form-field>
+              <input matInput placeholder="Usuário" formControlName="user" [errorStateMatcher]="matcher" />
+              <mat-icon matPrefix>account_circle</mat-icon>
+              <mat-hint *ngIf="siginForm.controls['user'].pristine">{{'MENSAGEM_USUARIO' | frases}}</mat-hint>
+              <mat-error *ngIf="siginForm.controls['user'].hasError('minlength') && !siginForm.controls['user'].hasError('required')">
+                {{'ERRO_USUARIO_INVALIDO' | frases}}
+              </mat-error>
+              <mat-error *ngIf="siginForm.controls['user'].hasError('required')">
+                {{'ERRO_USUARIO_VAZIO' | frases}}
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Senha" formControlName="pwd" [errorStateMatcher]="matcher" type="password" />
+              <mat-icon matPrefix>lock</mat-icon>
+              <mat-hint *ngIf="!siginForm.controls['user'].pristine && siginForm.controls['pwd'].pristine">{{'MENSAGEM_SENHA' | frases}}</mat-hint>
+              <mat-error *ngIf="siginForm.controls['pwd'].hasError('minlength') && !siginForm.controls['pwd'].hasError('required')">
+                {{'ERRO_SENHA_INVALIDA' | frases}}
+              </mat-error>
+              <mat-error *ngIf="siginForm.controls['pwd'].hasError('required')">
+                {{'ERRO_SENHA_VAZIA' | frases}}
+              </mat-error>
+            </mat-form-field>
+          </mat-card-content>
+  
+          <mat-card-actions>
+            <button mat-raised-button type="submit" [disabled]="siginForm.invalid">LOGIN</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </form>
+  </div>

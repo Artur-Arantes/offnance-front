@@ -1,0 +1,48 @@
+mat-card {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif;
+}
+mat-card-title {
+    text-align: center;
+}
+mat-card-actions {
+    text-align: center;
+}
+.main:before {
+    background-image: url('../../assets/images/contas.jpg');
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);
+    display: block;
+    position: fixed;
+    right: 0;
+    left: 0;
+    content: "";
+    height: calc(100vh - 64px);
+    z-index: -1;
+    overflow: hidden;
+}
+.main {
+    height: calc(100vh - 64px);
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+    position: relative;
+}
+.logo {
+    position: relative;
+    margin-right: 5px
+}
+.navbar {
+    z-index: 10;
+    position: relative;
+}
+mat-form-field {
+    width: 100%;
+}
